@@ -1,26 +1,20 @@
 //MUST HAVE - CREATE A TEMPLATE TAG
-var template_menu = document.createElement("template"); //<template> </template> RULE
+var template_particles = document.createElement("template"); //<template> </template> RULE
 
 //To-do - CREATE THE UI HERE!
-template_menu.innerHTML = `
-<div class='menu'>
-  <div id='sub'>
-  desert
-  </div>
+template_comp.innerHTML = `
+<style>
+    .par {
+        width:25px;
+        height:25px;
+        background: red;
+        border-radius: 50%;
+    }
 
- <style>
-  .menu {
-    color: #FFFFFF;
-    
-  }
-
- </style>
-
-</div>
 `;
 
 //MUST HAVE - CREATE A CLASS WITH HTMLELEMENT POWERS (interfaces/functionalities)
-class GameMenu extends HTMLElement {
+class TheParticles extends HTMLElement {
 
     //MUST HAVE - CREATE A CONSTRUCTOR TO DO INITAL ASSOCIATIONS
     constructor(){
@@ -32,14 +26,11 @@ class GameMenu extends HTMLElement {
 
     //MUST HAVE - FUNCTION THAT RUNS AFTER IT'S CONNECTED
     connectedCallback(){
-        this.shadowRoot.appendChild(template_menu.content.cloneNode(true)); //use the template to make a clone
-        this.shadowRoot.querySelector('#sub').innerHTML = this.getAttribute('name');
+        this.shadowRoot.appendChild(template_comp.content.cloneNode(true)); //use the template to make a clone
     }
 
     //To-do - CREATE THE FUNCTIONALITIES HERE!
 }
 
-
-
 //MUST HAVE - define the tag for the custom elements
-customElements.define("game-menu", GameMenu)
+customElements.define("the-particles", TheParticles)

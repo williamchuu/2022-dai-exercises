@@ -39,11 +39,12 @@ class GameBG extends HTMLElement {
     //MUST HAVE - FUNCTION THAT RUNS AFTER IT'S CONNECTED
     connectedCallback(){
         this.shadowRoot.appendChild(template_bg.content.cloneNode(true)); //use the template to make a clone
-    }
+        this.shadowRoot.querySelector(".menu").onclick = () => document.querySelector('#gamebg').changeBG();
+      }
 
     //To-do - CREATE THE FUNCTIONALITIES HERE!
     changeBG(){
-      
+      this.shadowRoot.querySelector("#bg > img").src = './imgs/forest.svg';
     }
 }
 

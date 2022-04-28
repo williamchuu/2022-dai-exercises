@@ -8,9 +8,10 @@ h1 {
   position:relative;
   transition:left 1s;
   left:0vw;
+  margin:300px 0;
 }
 </style>
-<h1>Hi</h1>
+<h1 class='head'>Hi</h1>
 `;
 
 //MUST HAVE - CREATE A CLASS WITH HTMLELEMENT POWERS (interfaces/functionalities)
@@ -27,10 +28,22 @@ class ScrollText extends HTMLElement {
     //MUST HAVE - FUNCTION THAT RUNS AFTER IT'S CONNECTED
     connectedCallback(){
         this.shadowRoot.appendChild(template_scrolltext.content.cloneNode(true)); //use the template to make a clone
-
+        // this.shadowRoot.querySelector('.head').onclick = () => this.slideRight();
         //assign variables!
     }
     //To-do - CREATE THE FUNCTIONALITIES HERE!
+    slideRight(){
+        this.shadowRoot.querySelector('.head').style.cssText = `
+            left:50vw;
+        `
+    }
+
+    scrollAway(){
+        this.shadowRoot.querySelector('.head').style.cssText = `
+            left:100vw;
+        `
+    }
+
 }
 
 //MUST HAVE - define the tag for the custom elements
